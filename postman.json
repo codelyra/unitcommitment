@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "42570ccb-a250-482e-979c-664e322e3152",
+		"name": "powerplant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "controller-json-payload",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
