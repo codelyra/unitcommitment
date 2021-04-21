@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using UnitCommitment.Models;
+using UnitCommitment.Services;
 
 namespace UnitCommitment.Controllers
 {
@@ -9,17 +13,31 @@ namespace UnitCommitment.Controllers
     public class ProductionPlanController : ControllerBase
     {
         private readonly ILogger<ProductionPlanController> _logger;
+        //private readonly IConfiguration _configuration;
+        private readonly AppSettings _appSettings;
 
-        public ProductionPlanController(ILogger<ProductionPlanController> logger)
+        public ProductionPlanController(ILogger<ProductionPlanController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _appSettings = new AppSettings();
+            configuration.GetSection("UnitCommitment").Bind(_appSettings);
         }
 
         [HttpPost]
-        public ActionResult<ProductionPayload> Get([FromBody] ProductionPayload payload)
+        public ActionResult<List<Commitment>> Schedule([FromBody] Payload payload)
         {
-            _logger.LogInformation("Index page says hello");
-            return payload;
+            _logger.LogInformation("controller started");
+
+            CommitmentService commitmentService = new CommitmentService(payload, _appSettings);
+            try
+            {
+                return commitmentService.CommitPoweplants();
+            }
+            catch(Exception exc)
+            {
+                _logger.LogError(exc.Message);
+                return null;
+            }
         }
     }
 }

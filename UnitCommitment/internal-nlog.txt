@@ -1,0 +1,5 @@
+2021-04-21 12:22:31.2525 Info Message Template Auto Format enabled
+2021-04-21 12:22:31.3851 Info Loading assembly: NLog.Web.AspNetCore
+2021-04-21 12:22:31.5143 Info Adding target FileTarget(Name=allfile)
+2021-04-21 12:22:31.5495 Info Adding target FileTarget(Name=ownFile-web)
+2021-04-21 12:22:31.7524 Info Validating config: TargetNames=allfile, ownFile-web, ConfigItems=45, FilePath=/Users/cloud.io/Downloads/coding/powerplant/UnitCommitment/UnitCommitment/bin/Debug/net5.0/nlog.config

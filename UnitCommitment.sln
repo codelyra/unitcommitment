@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitCommitment", "UnitCommi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitCommitmentTest", "UnitCommitmentTest\UnitCommitmentTest.csproj", "{1542B00F-A2EF-4379-B1A1-DBF0E714703F}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C6672C3F-F5E2-43DC-89DC-2DE57E57F874}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1542B00F-A2EF-4379-B1A1-DBF0E714703F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1542B00F-A2EF-4379-B1A1-DBF0E714703F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1542B00F-A2EF-4379-B1A1-DBF0E714703F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6672C3F-F5E2-43DC-89DC-2DE57E57F874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6672C3F-F5E2-43DC-89DC-2DE57E57F874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6672C3F-F5E2-43DC-89DC-2DE57E57F874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6672C3F-F5E2-43DC-89DC-2DE57E57F874}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

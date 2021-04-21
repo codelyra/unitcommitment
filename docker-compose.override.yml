@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  unitcommitment:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:8888;http://+:80
+    ports:
+      - "80"
+      - "8888:8888" 
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro

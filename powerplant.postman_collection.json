@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "aad9c7ca-8628-40dc-91d0-b874f0504108",
+		"name": "powerplant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "payload1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"load\": 480,\n  \"fuels\":\n  {\n    \"gas(euro/MWh)\": 13.4,\n    \"kerosine(euro/MWh)\": 50.8,\n    \"co2(euro/ton)\": 20,\n    \"wind(%)\": 60\n  },\n  \"powerplants\": [\n    {\n      \"name\": \"gasfiredbig1\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredbig2\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredsomewhatsmaller\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.37,\n      \"pmin\": 40,\n      \"pmax\": 210\n    },\n    {\n      \"name\": \"tj1\",\n      \"type\": \"turbojet\",\n      \"efficiency\": 0.3,\n      \"pmin\": 0,\n      \"pmax\": 16\n    },\n    {\n      \"name\": \"windpark1\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 150\n    },\n    {\n      \"name\": \"windpark2\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 36\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8888/productionplan",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"productionplan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payload2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"load\": 480,\n  \"fuels\":\n  {\n    \"gas(euro/MWh)\": 13.4,\n    \"kerosine(euro/MWh)\": 50.8,\n    \"co2(euro/ton)\": 20,\n    \"wind(%)\": 0\n  },\n  \"powerplants\": [\n    {\n      \"name\": \"gasfiredbig1\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredbig2\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredsomewhatsmaller\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.37,\n      \"pmin\": 40,\n      \"pmax\": 210\n    },\n    {\n      \"name\": \"tj1\",\n      \"type\": \"turbojet\",\n      \"efficiency\": 0.3,\n      \"pmin\": 0,\n      \"pmax\": 16\n    },\n    {\n      \"name\": \"windpark1\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 150\n    },\n    {\n      \"name\": \"windpark2\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 36\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8888productionplan",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8888productionplan"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payload3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"load\": 910,\n  \"fuels\":\n  {\n    \"gas(euro/MWh)\": 13.4,\n    \"kerosine(euro/MWh)\": 50.8,\n    \"co2(euro/ton)\": 20,\n    \"wind(%)\": 60\n  },\n  \"powerplants\": [\n    {\n      \"name\": \"gasfiredbig1\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredbig2\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredsomewhatsmaller\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.37,\n      \"pmin\": 40,\n      \"pmax\": 210\n    },\n    {\n      \"name\": \"tj1\",\n      \"type\": \"turbojet\",\n      \"efficiency\": 0.3,\n      \"pmin\": 0,\n      \"pmax\": 16\n    },\n    {\n      \"name\": \"windpark1\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 150\n    },\n    {\n      \"name\": \"windpark2\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 36\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8888/productionplan",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"productionplan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "payload3_load_590",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"load\": 590,\n  \"fuels\":\n  {\n    \"gas(euro/MWh)\": 13.4,\n    \"kerosine(euro/MWh)\": 50.8,\n    \"co2(euro/ton)\": 20,\n    \"wind(%)\": 60\n  },\n  \"powerplants\": [\n    {\n      \"name\": \"gasfiredbig1\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredbig2\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.53,\n      \"pmin\": 100,\n      \"pmax\": 460\n    },\n    {\n      \"name\": \"gasfiredsomewhatsmaller\",\n      \"type\": \"gasfired\",\n      \"efficiency\": 0.37,\n      \"pmin\": 40,\n      \"pmax\": 210\n    },\n    {\n      \"name\": \"tj1\",\n      \"type\": \"turbojet\",\n      \"efficiency\": 0.3,\n      \"pmin\": 0,\n      \"pmax\": 16\n    },\n    {\n      \"name\": \"windpark1\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 150\n    },\n    {\n      \"name\": \"windpark2\",\n      \"type\": \"windturbine\",\n      \"efficiency\": 1,\n      \"pmin\": 0,\n      \"pmax\": 36\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8888/productionplan",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"productionplan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
