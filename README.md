@@ -12,7 +12,7 @@ This solution makes no use of any off-the-shelf linear programming package or an
 
 ## Requirements
 
-Please refer to the doc /requirements/README.md
+Please refer to the doc PROBLEM.md
 
 ### Initial Considerations
 
@@ -57,3 +57,11 @@ Fill in the UnitCommitment section of AppSettings.json file
 1. Load the file powerplant.postman_collection.json and run the tests (the provided payloads are in included)
 2. Use Swagger (automatically loaded in the browser at startup) at https://localhost:8888/swagger/index.html
 3. Unfortunately at this moment there are still no unit tests implemented in the Test project
+
+## Final Remarks
+
+We decided to submit this version of the solution, noting that the following things need further improvement:
+
+1. review http errors
+2. unit tests
+3. sockets middleware
