@@ -27,29 +27,38 @@ namespace UnitCommitment.Services
 
         public List<Commitment> CommitPoweplants()
         {
+            // key variables 
             currDemand = payload.Demand;
             surplus = 0;
 
+            // use all clean, cheap and efficient wind plants
             CommitAllWindPowerplants();
+
+            // forward step: greedy fractional knapsack
             CommitOtherPlowerplants();
 
+            // backprop step: surplus elimination by high-merit powerplants
             if (surplus > 0)
             {
                 AdjustCommitmentSurplus();
             }
 
+            // create and return poweplant commitments
             foreach (MeritedPlant meritedPlant in meritedPlants)
             {
                 commitments.Add(new Commitment(meritedPlant.Name, meritedPlant.CommittedCapacity));
             }
-
             return commitments;
         }
 
         private void AdjustCommitmentSurplus()
         {
+            // reminder: meritedPlants contains only gasfired and turbojets
+            // commited plants are at the top of the meritocratic rule
             List<MeritedPlant> activePowerplants = meritedPlants.FindAll(mp => mp.CommittedCapacity > 0);
 
+            // backprop: surplus is created when we are forced to take min power instead of exact curr demand
+            // the last select plant is therefore operating at minimal power, we spread undesired surplus backwards
             int activePowerplantsIndex = activePowerplants.Count - 1;
             while (surplus > 0 && activePowerplantsIndex >= 1)
             {
@@ -69,6 +78,7 @@ namespace UnitCommitment.Services
 
         private void CommitAllWindPowerplants()
         {
+            // whatever the wind efficiency is, wind is still the best merit
             double efficiency = payload.Constraints.Wind / 100;
             IEnumerable<Powerplant> windPowerplants = payload.Suppliers.FindAll(s => s.Type.Equals("windturbine"));
             foreach (Powerplant supplier in windPowerplants)
@@ -94,11 +104,15 @@ namespace UnitCommitment.Services
 
         private void CommitOtherPlowerplants()
         {
+            // demand above wind power total capacity
             if(currDemand == 0)
                 return;
-            
+
+            // merit is defined as a ratio between unit cost and total capacity
             meritedPlants = EvaluatePowerplantsByMerit();
             int meritedPlantsIndex = 1;
+
+            // greedy knapsack: keep picking top valued elements until sack (total demand) is full
             while(currDemand > 0 && meritedPlantsIndex <= meritedPlants.Count)
             {
                 double committedValue = 0;
@@ -113,7 +127,7 @@ namespace UnitCommitment.Services
                     {
                         committedValue = currDemand;
                     }
-                    else
+                    else // set at minimum and calculated surplus (amount of generated power above demand)
                     {
                         committedValue = meritedPlant.MinCapacity;
                         surplus = meritedPlant.MinCapacity - currDemand;
@@ -128,6 +142,8 @@ namespace UnitCommitment.Services
         private List<MeritedPlant> EvaluatePowerplantsByMerit()
         { 
             List<Powerplant> powerplants = payload.Suppliers.FindAll(s => s.Type != "windturbine");
+
+            // first calculate effective cost taking into account plant efficiency, fuels cost and Co2 penalty
             foreach (Powerplant supplier in powerplants)
             {
                 double efficiency = supplier.Efficiency / 100;
@@ -151,6 +167,8 @@ namespace UnitCommitment.Services
                 meritedPlant.MinCapacity = supplier.MinCapacity;
                 meritedPlants.Add(meritedPlant);
             }
+
+            // sort by performance merit: full capacity / unit cost
             meritedPlants.Sort(OrderBMerit);
             return meritedPlants;
         }
