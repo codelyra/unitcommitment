@@ -4,6 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
     <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
     <UserSecretsId>5dd43a82-9ec9-4d0f-a260-5394b109f9ce</UserSecretsId>
+    <Description>Implements a heuristic method to find an exact match to power grid demand  
+A forward step implements fractional Knapsack greedy algorithm
+A backprop step reduces power commitent to assimilate occasional surplus</Description>
   </PropertyGroup>
 
   <ItemGroup>

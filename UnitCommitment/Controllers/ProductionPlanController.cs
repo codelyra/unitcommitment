@@ -24,7 +24,7 @@ namespace UnitCommitment.Controllers
         }
 
         [HttpPost]
-        public ActionResult<List<Commitment>> Schedule([FromBody] Payload payload)
+        public ActionResult<List<Commitment>> CreatePlan([FromBody] Payload payload)
         {
             _logger.LogInformation("controller started");
 

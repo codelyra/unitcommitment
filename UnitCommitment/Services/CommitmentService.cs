@@ -31,6 +31,11 @@ namespace UnitCommitment.Services
             currDemand = payload.Demand;
             surplus = 0;
 
+            if (currDemand <= 0) {
+                _log.Error("There is no feasible power demand");
+                return commitments;
+            }
+
             // use all clean, cheap and efficient wind plants
             CommitAllWindPowerplants();
 
@@ -44,9 +49,16 @@ namespace UnitCommitment.Services
             }
 
             // create and return poweplant commitments
+            double totalGridPower = 0;
             foreach (MeritedPlant meritedPlant in meritedPlants)
             {
                 commitments.Add(new Commitment(meritedPlant.Name, meritedPlant.CommittedCapacity));
+                totalGridPower += meritedPlant.CommittedCapacity;
+            }
+
+            if(totalGridPower <= payload.Demand)
+            {
+                _log.Error("Grid cannot supply total demand");
             }
             return commitments;
         }
